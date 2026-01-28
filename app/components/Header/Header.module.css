@@ -1,0 +1,198 @@
+.header {
+  background: var(--color-background);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 20px var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.logoText {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.03em;
+  font-style: italic;
+}
+
+/* Search */
+.searchForm {
+  flex: 1;
+  max-width: 340px;
+  position: relative;
+}
+
+.searchWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 14px;
+  color: var(--color-text-tertiary);
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 11px 14px 11px 40px;
+  background: var(--color-surface);
+  border: none;
+  border-radius: 100px;
+  font-size: 14px;
+  color: var(--color-text-primary);
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.04);
+}
+
+.searchInput:focus {
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+}
+
+.searchInput::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+.clearBtn {
+  position: absolute;
+  right: 10px;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-tertiary);
+  border-radius: 4px;
+}
+
+.clearBtn:hover {
+  color: var(--color-text-secondary);
+}
+
+.error {
+  position: absolute;
+  top: 100%;
+  left: 14px;
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--color-negative);
+}
+
+/* Wallet */
+.wallet {
+  flex-shrink: 0;
+  margin-left: auto;
+  position: relative;
+}
+
+.connectBtn {
+  padding: 11px 20px;
+  background: var(--color-text-primary);
+  color: white;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.connectBtn:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+/* Wallet pill */
+.walletButton {
+  display: flex;
+  align-items: center;
+  background: var(--color-surface);
+  border: none;
+  border-radius: 100px;
+  font-size: 14px;
+  color: var(--color-text-primary);
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.04);
+  overflow: hidden;
+}
+
+.walletButton:hover {
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.08);
+}
+
+.walletAddress {
+  padding: 11px 16px;
+  background: rgba(0,0,0,0.03);
+  color: #555;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.walletBalance {
+  padding: 11px 12px 11px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.walletChevron {
+  margin-right: 12px;
+  color: var(--color-text-tertiary);
+}
+
+/* Dropdown */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--color-surface);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  min-width: 160px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.dropdownItem {
+  width: 100%;
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 14px;
+  color: var(--color-text-primary);
+}
+
+.dropdownItem:hover {
+  background: var(--color-background);
+}
+
+@media (max-width: 640px) {
+  .container {
+    flex-wrap: wrap;
+    padding: 14px var(--space-md);
+  }
+  
+  .searchForm {
+    order: 3;
+    max-width: 100%;
+    width: 100%;
+    margin-top: var(--space-sm);
+  }
+  
+  .walletAddress {
+    padding: 9px 12px;
+    font-size: 13px;
+  }
+  
+  .walletBalance {
+    padding: 9px 10px 9px 12px;
+    font-size: 13px;
+  }
+}

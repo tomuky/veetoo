@@ -1,0 +1,72 @@
+.container {
+  background: var(--color-background);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.title {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.subtitle {
+  display: none;
+}
+
+.assets {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.asset {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.assetHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.symbol {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-tertiary);
+}
+
+.assetValues {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+
+.entryValue {
+  color: var(--color-text-tertiary);
+}
+
+.arrow {
+  color: var(--color-text-tertiary);
+}
+
+.currentValue {
+  color: var(--color-text-primary);
+  font-weight: var(--weight-medium);
+}
+
+.changeValue {
+  font-size: var(--text-xs);
+}
+
+.skeleton {
+  height: 80px;
+  background: var(--color-border);
+  border-radius: var(--radius-sm);
+  opacity: 0.3;
+}
