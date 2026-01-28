@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Uniswap V2 LP Position Tracker
+
+A web app for tracking Uniswap V2 liquidity provider positions on Base. View your LP positions, calculate impermanent loss, track fees earned, and analyze performance vs holding.
+
+## Features
+
+- **Wallet Connection** - Connect your wallet or enter any address to view positions
+- **Position Discovery** - Automatically discovers all Uniswap V2 LP positions on Base
+- **Impermanent Loss Calculation** - See the pure IL impact on your positions
+- **Fee Tracking** - Estimate fees earned from trading activity
+- **P&L Analysis** - Compare LP performance vs simply holding the tokens (HODL)
+- **APY Calculation** - Annualized returns based on time in pool
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org) 16 with App Router
+- [React](https://react.dev) 19
+- [wagmi](https://wagmi.sh) + [viem](https://viem.sh) for Web3 interactions
+- [TanStack Query](https://tanstack.com/query) for data fetching
+- [Recharts](https://recharts.org) for charts
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## How It Works
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. The app scans for ERC-20 Transfer events where the user received tokens
+2. Filters to valid Uniswap V2 pairs by checking for the `token0()` function
+3. Fetches position details including reserves, token metadata, and user share
+4. Calculates IL using the standard formula: `2 * sqrt(priceRatio) / (1 + priceRatio) - 1`
+5. Estimates fees by comparing actual position value to theoretical value with IL only
